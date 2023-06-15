@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tu aplicación</title>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Tu aplicación</h1>
+    </header>
+
+    <!-- Navegación -->
+    <nav>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/realtimeproducts">Productos en tiempo real</a></li>
+            <!-- Agrega aquí más enlaces a tus páginas -->
+        </ul>
+    </nav>
+
+    <!-- Contenido específico de cada página -->
+    {{{body}}}
+
+
+    <!-- Script para conexión en tiempo real con Socket.IO -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+
+        // Escuchar eventos de actualización en tiempo real
+        socket.on('updateProducts', function(products) {
+            console.log('Lista de productos actualizada:', products);
+            // Actualizar la lista de productos en la página
+            // ...
+        });
+
+        socket.on('updateCartProducts', function(cartProducts) {
+            console.log('Productos del carrito actualizados:', cartProducts);
+            // Actualizar los productos del carrito en la página
+            // ...
+        });
+    </script>
+</body>
+</html>
