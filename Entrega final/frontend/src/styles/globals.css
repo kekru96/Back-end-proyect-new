@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: 'Inter', sans-serif;
+}
+
+/* NAV-ITEM */
+.nav-item {
+    position: relative;
+    transition: 0.5s ease;
+    overflow: hidden;
+}
+
+.nav-item::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background-color: #24bd68;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.5s ease;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
